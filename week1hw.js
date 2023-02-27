@@ -201,55 +201,54 @@ Challenge 1: Given the following illustrations, identify each tree as:
 Tree #1: Binary Tree
  
         10
-       /  \
+       ↙  ↘
       8    15
-     / \     \
+     ↙  ↘    ↘
     3   6    20
     
 Tree #2: Binary Tree
 
         10
-       /  \
+       ↙  ↘
       8    15
-     /      \
+     ↙       ↘  
     3        20
-   / \
+  ↙  ↘
   4   6
  
 Tree #3: Tree
 
         10
-       / | \
+       ↙ ↓ ↘
       8  4  15
-     /       \
-    3         20
-     \
+     ↙        ↘
+    3          20
+     ↘
       6
   
 Tree #4: Binary Search Tree
 
         10
-       /  \
+       ↙  ↘
       6    15
-     / \     \
+     ↙  ↘     ↘
     3   8     20
   
 Tree #5: Tree, Graph
             
            2 
-        /   / \
-       /   /   \
-      9 -> 8 -> 12
-     /          /  \
+        ↙   ↙  ↘
+      9 ➡  8  ➡  12
+     ↙          ↙  ↘
     2          44  11
   
-Tree #6: Not Applicable
+Tree #6: Not Applicable, Graph?
            
         2   8
-        | /   \
-        9      12
-       /       /  \
-      2       44  11
+        ↓ ↙   ↘
+        9     12
+       ↙     ↙   ↘
+      2     44   11
 
 Challenge 2: Create 3 methods that are:   
 • insert (inserts a node as a child of the given parent node) 
