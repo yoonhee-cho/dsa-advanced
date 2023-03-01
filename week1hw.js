@@ -109,8 +109,8 @@ Challenge 1: Draw and explain in a diagram of how the stack data structure works
     ↓
     1 bottom
 
-    Rules : LIFO(Last in First Out) | Insertion and removal have to be done in constant time.
-    Example : Recursion and Callstack
+    • Rules : LIFO(Last in First Out) | Insertion and removal have to be done in constant time.
+    • Example : Recursion and Callstack
  
 Challenge 2: Create 2 methods that are:   
 • push (insert a element to the top of the stack) 
@@ -259,22 +259,106 @@ Challenge 3: Create 1 additional method that is:
 • remove (removes a node and its children from the BST) 
 */
 
-// class Node { 
-//     constructor(value){ 
-//         this.value = value;
-//     } 
-// } 
+class Node { 
+    constructor(value){ 
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    } 
+} 
  
 class BinarySearchTree { 
     constructor(){ 
+        this.root = null;
     } 
-    insert(value){ 
-    } 
-    find(value){ 
-    } 
-    contains(value){ 
-    } 
-    remove(){
 
+    insert(value){ 
+        let newNode = new Node(value);
+        let currNode = this.root;
+
+        if(!this.root) {
+            this.root = newNode; 
+        }
+        else {
+            while (true) {
+                if (currNode.value > value) {
+                    if (!currNode.left) {
+                        currNode.left = newNode;
+                        break;
+                    } else {
+                        currNode = currNode.left;
+                    }
+                }
+                else if(currNode.value < value) { 
+                    if (!currNode.right) {
+                        currNode.right = newNode;
+                        break;
+                    } else {
+                        currNode = currNode.right;
+                    }                    
+                }
+                else {
+                    console.log(`BST should have unique values, no duplicates allowed!`);
+                    return;
+                }
+            }
+        }
+        return this;
+    } 
+
+    find(value){ 
+        let currNode = this.root;
+
+        while(currNode) {
+            if (currNode.value === value) {
+                return currNode;
+            }
+            else if (currNode.value > value) {
+                currNode = currNode.left;
+            }
+            else {
+                currNode = currNode.right;
+            }
+        }
+        return null;
+    } 
+
+    contains(value){ 
+        if(!this.root) return false;
+
+        let foundNode = this.find(value);
+        if (foundNode) return true;
+
+        return false;
+    } 
+    // removes a node and its children from the BST
+    remove(value){
+        if (!this.root) return null;
+
+        let currNode = this.root;
+        while (true) {
+            if (currNode.value > value){
+                if (currNode.left.value === value) {
+                    currNode.left = null;
+                    return this;
+                }
+                currNode = currNode.left;
+            }
+            else if (currNode.value < value) {
+                if (currNode.right.value === value) {
+                    currNode.right = null;
+                    return this;
+                }
+                currNode = currNode.right;
+            }
+        }
     }
 } 
+
+let bst = new BinarySearchTree();
+bst.insert(10);
+bst.insert(6).insert(15);
+bst.insert(3).insert(8);
+bst.insert(20);
+
+console.log(bst.remove(3));
