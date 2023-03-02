@@ -23,85 +23,85 @@ Challenge 3: Create 3 additional methods that are:
 • printQueue (prints the elements in the queue) 
 */
 
-// class Node { 
-//     constructor(value){ 
-//         this.value = value;
-//         this.next = null;
-//     } 
-// } 
+class Node { 
+    constructor(value){ 
+        this.value = value;
+        this.next = null;
+    } 
+} 
  
-// class Queue { 
-//     constructor(){
-//         this.first = null;
-//         this.last = null;
-//         this.size = 0; 
-//     } 
+class Queue { 
+    constructor(){
+        this.first = null;
+        this.last = null;
+        this.size = 0; 
+    } 
 
-//     // add in the end = push
-//     enqueue(val){ 
-//         let newNode = new Node(val);
+    // add in the end = push
+    enqueue(val){ 
+        let newNode = new Node(val);
 
-//         if(!this.size) {
-//             this.first = newNode;
-//             this.last = newNode;
-//         }
-//         else {
-//             this.last.next = newNode;
-//             this.last = newNode;
-//         }
+        if(!this.size) {
+            this.first = newNode;
+            this.last = newNode;
+        }
+        else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
 
-//         this.size++;
-//         return this;
-//     } 
+        this.size++;
+        return this;
+    } 
 
-//     // remove in the beginnig = shift
-//     dequeue(){ 
-//         if(!this.size) return;
+    // remove in the beginnig = shift
+    dequeue(){ 
+        if(!this.size) return;
 
-//         let removedFirst = this.first;
-//         this.first = removedFirst.next;
+        let removedFirst = this.first;
+        this.first = removedFirst.next;
 
-//         if(this.size === 1) {
-//             this.last = null;
-//         }
+        if(this.size === 1) {
+            this.last = null;
+        }
 
-//         this.size--;
+        this.size--;
 
-//         return removedFirst;
-//     } 
+        return removedFirst;
+    } 
     
-//     peek(){
-//         if(this.first){
-//             return this.first;
-//         }
-//         return null;
-//     }
+    peek(){
+        if(this.first){
+            return this.first;
+        }
+        return null;
+    }
  
-//     isEmpty(){
-//         return !this.size;
-//     }
+    isEmpty(){
+        return !this.size;
+    }
 
-//     printQueue(){
-//         let currNode = this.first;
+    printQueue(){
+        let currNode = this.first;
 
-//         while (currNode) {
-//             console.log(currNode);
-//             currNode = currNode.next;
-//         }
-//     }
-// } 
+        while (currNode) {
+            console.log(currNode);
+            currNode = currNode.next;
+        }
+    }
+} 
 
-// let queue= new Queue();
-// queue.enqueue(1).enqueue(2).enqueue(34);
+let queue= new Queue();
+queue.enqueue(1).enqueue(2).enqueue(34);
 
-// console.log(queue.printQueue())
+console.log(queue.printQueue())
 
 /**
 STACKS 
  
 Challenge 1: Draw and explain in a diagram of how the stack data structure works.  
 
-    5 top [where pop & pop happen]
+    5 top [where push & pop happen]
     ↓
     13
     ↓
@@ -123,64 +123,64 @@ Challenge 3: Create 3 additional methods that are:
 • printStack (prints the elements in the stack) 
 */
 
-// class Node { 
-//     constructor(value){ 
-//         this.value = value;
-//         this.next = null;
-//     } 
-// } 
+class Node { 
+    constructor(value){ 
+        this.value = value;
+        this.next = null;
+    } 
+} 
  
-// class Stack { 
-//     constructor(){ 
-//         this.top = null;
-//         this.bottom = null;
-//         this.size = 0;
-//     } 
+class Stack { 
+    constructor(){ 
+        this.top = null;
+        this.bottom = null;
+        this.size = 0;
+    } 
 
-//     push(val){ 
-//         let newNode = new Node(val);
+    push(val){ 
+        let newNode = new Node(val);
         
-//         if (!this.size) {
-//             this.top = newNode;
-//             this.bottom = newNode;
-//         }
-//         else {
-//             newNode.next = this.top;
-//             this.top = newNode;
-//         }
-//         this.size++;
-//         return this;
-//     } 
+        if (!this.size) {
+            this.top = newNode;
+            this.bottom = newNode;
+        }
+        else {
+            newNode.next = this.top;
+            this.top = newNode;
+        }
+        this.size++;
+        return this;
+    } 
  
-//     pop(){ 
-//         if (!this.size) return;
+    pop(){ 
+        if (!this.size) return;
 
-//         let removedTop = this.top;
-//         this.top = removedTop.next;
+        let removedTop = this.top;
+        this.top = removedTop.next;
 
-//         if(this.size === 1) {
-//             this.bottom = null;
-//         }
+        if(this.size === 1) {
+            this.bottom = null;
+        }
 
-//         this.size--;
-//         return removedTop;
-//     } 
+        this.size--;
+        return removedTop;
+    } 
 
-//     peek() {
-//        return this.top;
-//     }
+    peek() {
+       return this.top;
+    }
 
-//     isEmpty(){
-//         return !this.size;
-//     }
+    isEmpty(){
+        return !this.size;
+    }
 
-//     printStack(){
-//         let currNode = this.top;
-//         while(currNode) {
-//             currNode = currNode.next;
-//         }
-//     }
-// } 
+    printStack(){
+        let currNode = this.top;
+        while(currNode) {
+            currNode = currNode.next;
+        }
+    }
+} 
 
 // let stack = new Stack();
 // stack.push(1);
@@ -331,6 +331,7 @@ class BinarySearchTree {
 
         return false;
     } 
+    
     // removes a node and its children from the BST
     remove(value){
         if (!this.root) return null;
