@@ -177,6 +177,7 @@ class Stack {
     printStack(){
         let currNode = this.top;
         while(currNode) {
+            console.log(currNode);
             currNode = currNode.next;
         }
     }
@@ -331,7 +332,7 @@ class BinarySearchTree {
 
         return false;
     } 
-    
+
     // removes a node and its children from the BST
     remove(value){
         if (!this.root) return null;
