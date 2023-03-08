@@ -57,23 +57,38 @@ class BinarySearchTree {
         }
     }
 
-    countLeafs() {
-        // use bfs get the last level length....
+    countLeafsIteratively() {
+        if(!this.root) return 0;
 
         let currNode = this.root;
-        let visited = [];
         let queue = [currNode];
         let count = 0;
 
         while(queue.length) {
             currNode = queue.shift();
-            visited.push(currNode.value);
-
-            if(currNode.left) queue.push(currNode.left);
-            if(currNode.right) queue.push(currNode.right);
             if(!currNode.left && !currNode.right) count++;
+            else {
+                if(currNode.left) queue.push(currNode.left);
+                if(currNode.right) queue.push(currNode.right);
+            }
         }
         return count;
+    }
+
+    countLeafsRecursively(node){
+        if(!node) return 0;
+        if(!node.left && !node.right) return 1;
+        else return this.leafCount(node.left) + this.leafCount(node.right);
+    } 
+
+    // returns a object that has a SORTED list of all odd nodes and count.
+    countOdds(tree) { 
+        // to return odds in ascending order, using left- root - right, in-order seems logical
+
+    }
+
+    same(tree1, tree2) {
+        // traverse each node from root level by levl and if they are not same, return false immediately
     }
     
 }
@@ -89,7 +104,7 @@ tree.insert(7)
 tree.insert(10)
 tree.insert(14)
 tree.insert(13)
-console.log(tree.countLeafs()); // 3
+console.log(tree.leafCount(tree.root)); // 3
 
 
 /**
@@ -102,9 +117,9 @@ For example, given the following example:
 
               8
            ↙️    ↘️
-          3      10
-        ↙️  ↘️       ↘️
-       1     6       14
+          3       10
+        ↙️  ↘️         ↘️
+       1     6        14
            ↙️   ↘️     ↙️ 
           4     7   13 
 
