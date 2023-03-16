@@ -147,9 +147,7 @@ Example below should return TRUE
     /  \   /
    4   2  1  
 */
-// TODO : visualize with full tree step by step, and implement with recursive approach
-// while statement idx < leng possible?
-// minheap imple, pq implement
+
 function isMaxHeap(tree){
   let parentEl = tree.values[0];
   let parentIdx = 0;
